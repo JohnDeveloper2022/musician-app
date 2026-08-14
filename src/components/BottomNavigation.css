@@ -1,0 +1,14 @@
+.bottom-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    border-radius: 0;
+    margin-top: auto;
+    background-color: var(--color-background);
+}
+
+.bottom-navigation .nav-item {
+    flex: 1;
+}
