@@ -1,0 +1,30 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-icon-label);
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-button);
+  font-weight: 500;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.button[data-variant='primary'] {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.button[data-variant='secondary'] {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.button[data-variant='text'] {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: transparent;
+    padding: 0;
+}
