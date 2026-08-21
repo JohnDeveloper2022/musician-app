@@ -1,0 +1,45 @@
+.selection-card {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-content);
+  border: 1px solid #D9DDD7;
+  border-radius: var(--radius-selection);
+  background: transparent;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.selection-card__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.selection-card__chevron {
+  margin-left: auto;
+}
+
+.selection-card__icon--background {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.selection-card .material-symbols-outlined {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.selection-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
