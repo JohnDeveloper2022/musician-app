@@ -18,6 +18,7 @@
   /* Typography */
   --font-family-base: "Instrument Sans", sans-serif;
 
+  --font-size-display: 36px;
   --font-size-page-title: 28px;
   --font-size-section-heading: 16px;
   --font-size-body: 16px;
@@ -26,12 +27,15 @@
   --font-size-button: 16px;
   --font-size-nav-label: 14px;
 
+  --line-height-display: 44px;
   --line-height-page-title: 36px;
   --line-height-section-heading: 24px;
   --line-height-body: 24px;
   --line-height-label: 20px;
   --line-height-caption: 20px;
   --line-height-nav-label: 20px;
+
+  --font-weight-display: 600;
 
   /* Spacing */
   --spacing-screen: 24px;

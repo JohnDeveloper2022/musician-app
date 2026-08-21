@@ -1,0 +1,47 @@
+.setting-row {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-setting);
+  border: 1px solid #D9DDD7;
+  border-radius: var(--radius-setting);
+  background: transparent;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.setting-row__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.setting-row__icon {
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.setting-row__label {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.setting-row__chevron {
+  margin-left: auto;
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.setting-row:active {
+  background-color: var(--color-surface-pressed);
+}
+
+.setting-row:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
