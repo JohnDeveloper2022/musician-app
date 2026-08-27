@@ -3,7 +3,7 @@
   min-height: 72px;
   display: flex;
   align-items: center;
-  padding: var(--spacing-content);
+  padding: 0 20px;
   border: 1px solid #D9DDD7;
   border-radius: var(--radius-selection);
   background: transparent;
@@ -42,4 +42,9 @@
 .selection-card:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.selection-card[data-selected='true'] {
+  border-color: var(--color-primary);
+  background-color: var(--color-nav-active-bg);
 }

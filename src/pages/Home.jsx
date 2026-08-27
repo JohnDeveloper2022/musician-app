@@ -2,7 +2,7 @@ import './Home.css'
 import Button from '../components/Button'
 import BottomNavigation from '../components/BottomNavigation'
 
-function Home() {
+function Home({ onStartSession }) {
     return (
         <main className='home'>
             <div className='home__content'>
@@ -32,7 +32,7 @@ function Home() {
                     </div>
                 </section>
 
-                <Button>Comenzar sesión</Button>
+                <Button onClick={onStartSession}>Comenzar sesión</Button>
 
                 <section className='home__card'>
                     <div className='home__card-header'>
