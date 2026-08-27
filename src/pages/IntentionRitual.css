@@ -1,0 +1,68 @@
+.intention-ritual {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.intention-ritual__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.intention-ritual__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+}
+
+.intention-ritual__header h1 {
+  margin: 0;
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-page-title);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.intention-ritual__header p {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.intention-ritual__options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.intention-ritual__spacer {
+  flex: 1;
+  min-height: 24px;
+}
+
+.intention-ritual__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.intention-ritual__cta .button {
+  width: 100%;
+  height: 48px;
+  justify-content: center;
+}
+
+.intention-ritual__cta p {
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
