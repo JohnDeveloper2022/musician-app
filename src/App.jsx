@@ -1,17 +1,8 @@
 import './App.css'
-import BottomNavigation from './components/BottomNavigation'
-import SelectionCard from './components/SelectionCard'
+import Home from './pages/Home'
 
 function App() {
-  return (
-    <main>
-      <h1>Musician App</h1>
-
-      <SelectionCard icon="music_note" label="Técnica" iconBackground />
-
-      <BottomNavigation activeItem='home' />
-    </main>
-  )
+  return <Home />
 }
 
 export default App
