@@ -1,0 +1,121 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.home__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+}
+
+.home__header h1 {
+  margin: 0;
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-page-title);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.home__header p {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.home__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #D9DDD7;
+  border-radius: var(--radius-card);
+  background-color: transparent;
+}
+
+.home__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-icon-label);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.home__card-header .material-symbols-outlined {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.home__divider {
+  width: 100%;
+  height: 1px;
+  margin-top: -4px;
+  background-color: #D9DDD7;
+}
+
+.home__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home__card-primary {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.home__card-secondary {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.home__history-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-icon-label);
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.home__history-link .material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.home__content > .button {
+  width: 100%;
+  height: 48px;
+  justify-content: center;
+}
+
+.home__spacer {
+  flex: 1;
+  min-height: 24px;
+}
