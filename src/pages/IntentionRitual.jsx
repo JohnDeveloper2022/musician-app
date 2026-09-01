@@ -3,7 +3,7 @@ import './IntentionRitual.css'
 import Button from '../components/Button'
 import SelectionCard from '../components/SelectionCard'
 
-function IntentionRitual() {
+function IntentionRitual({ onStartPractice }) {
     const [selectedIntention, setSelectedIntention] = useState(null)
     
     return (
@@ -44,7 +44,7 @@ function IntentionRitual() {
             <div className='intention-ritual__spacer' />
 
             <div className='intention-ritual__cta'>
-                <Button disabled={!selectedIntention}>
+                <Button onClick={onStartPractice} disabled={!selectedIntention}>
                     Comenzar sesión
                 </Button>
 
