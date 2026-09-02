@@ -2,7 +2,7 @@ import './PracticeSession.css'
 import Button from '../components/Button'
 import ContinuityIndicator from '../components/ContinuityIndicator'
 
-function PracticeSession({ onCaptureIdea, onFinishSession}) {
+function PracticeSession({ onCaptureIdea, onFinishSession }) {
     return (
         <main className='practice-session'>
 
