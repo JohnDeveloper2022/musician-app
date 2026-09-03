@@ -4,10 +4,15 @@ import Home from './pages/Home'
 import IntentionRitual from './pages/IntentionRitual'
 import PracticeSession from './pages/PracticeSession'
 import CaptureIdea from './pages/CaptureIdea'
+import FinalReflection from './pages/FinalReflection'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState('home')
-  const [idea, setIdea] = useState('')
+  const [session, setSession] = useState({
+    idea: '',
+    reflection: '',
+    status: 'in_progress'
+  })
 
   return (
     <>
@@ -30,7 +35,10 @@ function App() {
       {currentScreen === 'capture' && (
         <CaptureIdea
           onSaveIdea={(newIdea) => {
-            setIdea(newIdea)
+            setSession((currentSession) => ({
+              ...currentSession,
+              idea: newIdea
+            }))
             setCurrentScreen('practice')
           }}
           onBackToSession={() => setCurrentScreen('practice')}
@@ -38,7 +46,23 @@ function App() {
       )}
 
       {currentScreen === 'reflection' && (
-        <div>Reflexión Final</div>
+        <FinalReflection
+          onSaveReflection={(newReflection) => {
+            setSession((currentSession) => ({
+              ...currentSession,
+              reflection: newReflection,
+              status: 'completed'
+            }))
+            setCurrentScreen('home')
+          }}
+          onSkipReflection={() => {
+            setSession((currentSession) => ({
+              ...currentSession,
+              status: 'completed'
+            }))
+            setCurrentScreen('home')
+          }}
+        />
       )}
     </>
   )
