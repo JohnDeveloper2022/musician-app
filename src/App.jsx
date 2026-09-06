@@ -8,11 +8,7 @@ import FinalReflection from './pages/FinalReflection'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState('home')
-  const [session, setSession] = useState({
-    idea: '',
-    reflection: '',
-    status: 'in_progress'
-  })
+  const [session, setSession] = useState(null)
 
   return (
     <>
@@ -21,7 +17,18 @@ function App() {
       )}
 
       {currentScreen === 'intention' && (
-        <IntentionRitual onStartPractice={() => setCurrentScreen('practice')}
+        <IntentionRitual onStartPractice={(selectedIntention) => {
+          setSession({
+            id: crypto.randomUUID(),
+            createdAt: new Date().toISOString(),
+            intention: selectedIntention,
+            idea: '',
+            reflection: '',
+            status: 'in_progress'
+          })
+
+          setCurrentScreen('practice')
+        }}
         />
       )}
 

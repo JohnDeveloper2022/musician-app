@@ -44,7 +44,11 @@ function IntentionRitual({ onStartPractice }) {
             <div className='intention-ritual__spacer' />
 
             <div className='intention-ritual__cta'>
-                <Button onClick={onStartPractice} disabled={!selectedIntention}>
+                <Button
+                    variant='primary'
+                    disabled={!selectedIntention}
+                    onClick={() => onStartPractice(selectedIntention)}
+                >
                     Comenzar sesión
                 </Button>
 
