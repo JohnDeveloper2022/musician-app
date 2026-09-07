@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Home from './pages/Home'
 import IntentionRitual from './pages/IntentionRitual'
 import PracticeSession from './pages/PracticeSession'
@@ -9,6 +9,18 @@ import FinalReflection from './pages/FinalReflection'
 function App() { 
   const [currentScreen, setCurrentScreen] = useState('home')
   const [session, setSession] = useState(null)
+  const [sessions, setSessions] = useState(() => {
+    const storedSessions = localStorage.getItem('musician-app-sessions')
+
+    return storedSessions ? JSON.parse(storedSessions) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem(
+      'musician-app-sessions',
+      JSON.stringify(sessions)
+    )
+  }, [sessions])
 
   return (
     <>
@@ -55,18 +67,32 @@ function App() {
       {currentScreen === 'reflection' && (
         <FinalReflection
           onSaveReflection={(newReflection) => {
-            setSession((currentSession) => ({
-              ...currentSession,
+            const completedSession = {
+              ...session,
               reflection: newReflection,
               status: 'completed'
-            }))
+            }
+
+            setSession(completedSession)
+            setSessions((currentSessions) => [
+              ...currentSessions,
+              completedSession
+            ])
+
             setCurrentScreen('home')
           }}
           onSkipReflection={() => {
-            setSession((currentSession) => ({
-              ...currentSession,
+            const completedSession = {
+              ...session,
               status: 'completed'
-            }))
+            }
+
+            setSession(completedSession)
+            setSessions((currentSessions) => [
+              ...currentSessions,
+              completedSession
+            ])
+            
             setCurrentScreen('home')
           }}
         />
