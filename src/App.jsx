@@ -5,6 +5,7 @@ import IntentionRitual from './pages/IntentionRitual'
 import PracticeSession from './pages/PracticeSession'
 import CaptureIdea from './pages/CaptureIdea'
 import FinalReflection from './pages/FinalReflection'
+import History from './pages/History'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState('home')
@@ -25,7 +26,10 @@ function App() {
   return (
     <>
       {currentScreen === 'home' && (
-        <Home onStartSession={() => setCurrentScreen('intention')} />
+        <Home 
+          onStartSession={() => setCurrentScreen('intention')}
+          onNavigate={setCurrentScreen}
+        />
       )}
 
       {currentScreen === 'intention' && (
@@ -95,6 +99,12 @@ function App() {
             
             setCurrentScreen('home')
           }}
+        />
+      )}
+      {currentScreen === 'history' && (
+        <History 
+          sessions={sessions}
+          onNavigate={setCurrentScreen}
         />
       )}
     </>

@@ -2,7 +2,7 @@ import './Home.css'
 import Button from '../components/Button'
 import BottomNavigation from '../components/BottomNavigation'
 
-function Home({ onStartSession }) {
+function Home({ onStartSession, onNavigate }) {
     return (
         <main className='home'>
             <div className='home__content'>
@@ -48,7 +48,11 @@ function Home({ onStartSession }) {
                         <p className='home__card-primary'>
                             Hoy sentí que pude escuchar con más atención.
                         </p>
-                        <button type='button' className='home__history-link'>
+                        <button
+                        type='button'
+                        className='home__history-link'
+                        onClick={() => onNavigate('history')}
+                        >
                             <span>Ver historial</span>
                             <span className='material-symbols-outlined'>
                                 arrow_forward
@@ -61,7 +65,10 @@ function Home({ onStartSession }) {
 
             <div className='home__spacer' />
 
-            <BottomNavigation activeItem='home' />
+            <BottomNavigation 
+                activeItem='home'
+                onNavigate={onNavigate}
+            />
 
         </main>
     )

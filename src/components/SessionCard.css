@@ -1,0 +1,64 @@
+.session-card {
+  width: 100%;
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #D9DDD7;
+  border-radius: var(--radius-card);
+  background-color: transparent;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  text-align: left;
+  cursor: pointer;
+}
+
+.session-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-icon-label);
+}
+
+.session-card__header .material-symbols-outlined {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-secondary);
+}
+
+.session-card__date {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.session-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.session-card__reflection,
+.session-card__ideas {
+  margin: 0;
+}
+
+.session-card__reflection {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.session-card__ideas {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.session-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
