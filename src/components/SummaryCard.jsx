@@ -1,8 +1,15 @@
 import './SummaryCard.css'
 
-function SummaryCard({ icon, metadata, primary, secondary }) {
+function SummaryCard({ icon, metadata, primary, secondary, onClick }) {
+    const CardElement = onClick ? 'button' : 'article'
+
     return (
-        <article className='summary-card'>
+        <CardElement
+            className='summary-card'
+            type={onclick ? 'button' : undefined}
+            onClick={onClick}
+        >
+
             <div className='summary-card__header'>
                 <span className='material-symbols-outlined summary-card__icon'>
                     {icon}
@@ -22,7 +29,7 @@ function SummaryCard({ icon, metadata, primary, secondary }) {
                     {secondary}
                 </p>
             </div>
-        </article>
+        </CardElement>
     )
 }
 

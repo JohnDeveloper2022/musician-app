@@ -1,5 +1,5 @@
 import './History.css'
-import SessionCard from '../components/SessionCard'
+import SummaryCard from '../components/SummaryCard'
 import BottomNavigation from '../components/BottomNavigation'
 
 function History({ sessions, onNavigate, onSelectSession }) {
@@ -22,9 +22,10 @@ function History({ sessions, onNavigate, onSelectSession }) {
                 {sortedSessions.length > 0 ? (
                     <div className='history__list'>
                         {sortedSessions.map((session) => (
-                            <SessionCard
+                            <SummaryCard
                                 key={session.id}
-                                date={new Date(session.createdAt).toLocaleDateString(
+                                icon='calendar_today'                                
+                                metadata={new Date(session.createdAt).toLocaleDateString(
                                     'es-AR',
                                     {
                                         day: 'numeric',
@@ -32,10 +33,10 @@ function History({ sessions, onNavigate, onSelectSession }) {
                                         year: 'numeric'
                                     }
                                 )}
-                                reflection={
+                                primary={
                                     session.reflection || 'Sin reflexión registrada'
                                 }
-                                ideasCount={session.idea ? 1 : 0}
+                                secondary={session.idea ? '1 idea capturada' : '0 ideas capturadas'}
                                 onClick={() => onSelectSession?.(session)}
                             />
                         ))}
