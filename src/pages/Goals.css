@@ -1,0 +1,70 @@
+.goals {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-screen);
+}
+
+.goals__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.goals__header h1 {
+    margin: 0;
+    font-size: var(--font-size-page-title);
+    line-height: var(--line-height-page-title);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.goals__header p {
+    margin: 0;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+}
+
+.goals__active {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.goals__active h2 {
+    margin: 0;
+    font-size: var(--font-size-section-heading);
+    line-height: var(--line-height-section-heading);
+    font-weight: 400;
+    color: var(--color-text-primary);
+}
+
+.goals__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.goals__empty {
+    margin: 0;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+}
+
+.goals__spacer {
+    flex: 1;
+    min-height: 24px;
+}
+
+.goals__action {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.goals__action .button {
+    width: 100%;
+    justify-content: center;
+}

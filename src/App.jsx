@@ -6,6 +6,7 @@ import PracticeSession from './pages/PracticeSession'
 import CaptureIdea from './pages/CaptureIdea'
 import FinalReflection from './pages/FinalReflection'
 import History from './pages/History'
+import Goals from './pages/Goals'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState('home')
@@ -101,9 +102,16 @@ function App() {
           }}
         />
       )}
+
       {currentScreen === 'history' && (
         <History 
           sessions={sessions}
+          onNavigate={setCurrentScreen}
+        />
+      )}
+
+      {currentScreen === 'goals' && (
+        <Goals
           onNavigate={setCurrentScreen}
         />
       )}

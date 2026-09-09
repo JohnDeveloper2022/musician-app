@@ -22,6 +22,7 @@ function BottomNavigation({ activeItem = 'home', onNavigate }) {
               icon="flag"
               label="Objetivos"
               active={activeItem === 'goals'}
+              onClick={() => onNavigate('goals')}
             />
 
             <NavItem 
