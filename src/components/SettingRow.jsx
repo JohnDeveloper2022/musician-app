@@ -1,8 +1,8 @@
 import './SettingRow.css'
 
-function SettingRow( {icon, label }) {
+function SettingRow( {icon, label, onClick }) {
     return (
-        <button type='button' className='setting-row'>
+        <button type='button' className='setting-row' onClick={onClick}>
             <span className='setting-row__content'>
                 <span className='material-symbols-outlined setting-row__icon'>
                     {icon}

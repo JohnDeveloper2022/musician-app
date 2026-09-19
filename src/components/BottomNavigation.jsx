@@ -29,6 +29,7 @@ function BottomNavigation({ activeItem = 'home', onNavigate }) {
               icon="person"
               label="Perfil"
               active={activeItem === 'profile'}
+              onClick={() => onNavigate('profile')}
             />
         </nav>
     )

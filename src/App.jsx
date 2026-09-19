@@ -7,6 +7,7 @@ import CaptureIdea from './pages/CaptureIdea'
 import FinalReflection from './pages/FinalReflection'
 import History from './pages/History'
 import Goals from './pages/Goals'
+import Profile from './pages/Profile'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState('home')
@@ -112,6 +113,12 @@ function App() {
 
       {currentScreen === 'goals' && (
         <Goals
+          onNavigate={setCurrentScreen}
+        />
+      )}
+
+      {currentScreen === 'profile' && (
+        <Profile
           onNavigate={setCurrentScreen}
         />
       )}

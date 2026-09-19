@@ -1,0 +1,45 @@
+.profile {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-screen);
+}
+
+.profile__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profile__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile__header h1 {
+    margin: 0;
+    font-size: var(--font-size-page-title);
+    line-height: var(--line-height-page-title);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.profile__header p {
+    margin: 0;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
+.profile__settings {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile__spacer {
+    flex: 1;
+    min-height: 24px;
+}
