@@ -28,7 +28,8 @@ function App() {
   return (
     <>
       {currentScreen === 'home' && (
-        <Home 
+        <Home
+          sessions={sessions}
           onStartSession={() => setCurrentScreen('intention')}
           onNavigate={setCurrentScreen}
         />
