@@ -2,7 +2,19 @@ import './Home.css'
 import Button from '../components/Button'
 import BottomNavigation from '../components/BottomNavigation'
 
-function Home({ onStartSession, onNavigate }) {
+function Home({ sessions, onStartSession, onNavigate }) {
+    const completedSessions = sessions
+        .filter((session) => session.status === 'completed')
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+
+    const latestSession = completedSessions[0]
+
+    const latestReflectionSession = completedSessions.find(
+        (session) => session.reflection
+    )
+
+    const latestLearning = latestSession?.idea || latestSession?.reflection
+
     return (
         <main className='home'>
             <div className='home__content'>
@@ -23,12 +35,25 @@ function Home({ onStartSession, onNavigate }) {
                     <div className='home__divider' />
 
                     <div className='home__card-content'>
-                        <p className='home__card-primary'>
-                            Ayer descubriste una nueva forma de relajar la mano derecha.
-                        </p>
-                        <p className='home__card-secondary'>
-                            Tu aprendizaje siempre puede acompañarte.
-                        </p>
+                        {latestLearning ? (
+                            <>
+                                <p className='home__card-primary'>
+                                    {latestLearning}
+                                </p>
+                                <p className='home__card-secondary'>
+                                    Este aprendizaje puede acompañar tu próxima sesión.
+                                </p>
+                            </>
+                        ) : (
+                            <>
+                                <p className='home__card-primary'>
+                                    Tus descubrimientos pueden convertirse en el punto de partida de tu próxima sesión.
+                                </p>
+                                <p className='home__card-secondary'>
+                                    Cuando encuentres algo valioso, puedes capturarlo.
+                                </p>
+                            </>
+                        )}
                     </div>
                 </section>
 
@@ -46,7 +71,9 @@ function Home({ onStartSession, onNavigate }) {
 
                     <div className='home__card-content'>
                         <p className='home__card-primary'>
-                            Hoy sentí que pude escuchar con más atención.
+                            {latestReflectionSession
+                                ? latestReflectionSession.reflection
+                                : 'Todavía no tienes una reflexión registrada.'}
                         </p>
                         <button
                         type='button'
