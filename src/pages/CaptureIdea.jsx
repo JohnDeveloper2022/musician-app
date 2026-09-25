@@ -41,7 +41,8 @@ function CaptureIdea({ onSaveIdea, onBackToSession }) {
 
                 <Button
                     variant='primary'
-                    onClick={() => onSaveIdea(idea)}
+                    disabled={!idea.trim()}
+                    onClick={() => onSaveIdea(idea.trim())}
                 >
                     Guardar idea
                 </Button>

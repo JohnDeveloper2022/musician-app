@@ -41,7 +41,8 @@ function FinalReflection({ onSaveReflection, onSkipReflection }) {
 
                 <Button
                     variant='primary'
-                    onClick={() => onSaveReflection(reflection)}
+                    disabled={!reflection.trim()}
+                    onClick={() => onSaveReflection(reflection.trim())}
                 >
                     Guardar reflexión
                 </Button>
