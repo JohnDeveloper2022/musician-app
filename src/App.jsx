@@ -10,8 +10,18 @@ import Goals from './pages/Goals'
 import Profile from './pages/Profile'
 
 function App() { 
-  const [currentScreen, setCurrentScreen] = useState('home')
-  const [session, setSession] = useState(null)
+  const [currentScreen, setCurrentScreen] = useState(() => {
+    const storedSession = localStorage.getItem('musician-app-current-session')
+
+    return storedSession ? 'practice' : 'home'
+  })
+
+  const [session, setSession] = useState(() => {
+    const storedSession = localStorage.getItem('musician-app-current-session')
+
+    return storedSession ? JSON.parse(storedSession) : null
+  })
+
   const [sessions, setSessions] = useState(() => {
     const storedSessions = localStorage.getItem('musician-app-sessions')
 
@@ -24,6 +34,17 @@ function App() {
       JSON.stringify(sessions)
     )
   }, [sessions])
+
+  useEffect(() => {
+    if (session) {
+      localStorage.setItem(
+        'musician-app-current-session',
+        JSON.stringify(session)
+      )
+    } else {
+      localStorage.removeItem('musician-app-current-session')
+    }
+  }, [session])
 
   return (
     <>
@@ -80,12 +101,12 @@ function App() {
               status: 'completed'
             }
 
-            setSession(completedSession)
             setSessions((currentSessions) => [
               ...currentSessions,
               completedSession
             ])
 
+            setSession(null)
             setCurrentScreen('home')
           }}
           onSkipReflection={() => {
@@ -94,12 +115,12 @@ function App() {
               status: 'completed'
             }
 
-            setSession(completedSession)
             setSessions((currentSessions) => [
               ...currentSessions,
               completedSession
             ])
             
+            setSession(null)
             setCurrentScreen('home')
           }}
         />
