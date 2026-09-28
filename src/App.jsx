@@ -8,6 +8,7 @@ import FinalReflection from './pages/FinalReflection'
 import History from './pages/History'
 import Goals from './pages/Goals'
 import Profile from './pages/Profile'
+import SessionDetail from './pages/SessionDetail'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState(() => {
@@ -27,6 +28,8 @@ function App() {
 
     return storedSessions ? JSON.parse(storedSessions) : []
   })
+
+  const [selectedSession, setSelectedSession] = useState(null)
 
   useEffect(() => {
     localStorage.setItem(
@@ -119,7 +122,7 @@ function App() {
               ...currentSessions,
               completedSession
             ])
-            
+
             setSession(null)
             setCurrentScreen('home')
           }}
@@ -130,6 +133,10 @@ function App() {
         <History 
           sessions={sessions}
           onNavigate={setCurrentScreen}
+          onSelectSession={(selectedSession) => {
+            setSelectedSession(selectedSession)
+            setCurrentScreen('session-detail')
+          }}
         />
       )}
 
@@ -142,6 +149,16 @@ function App() {
       {currentScreen === 'profile' && (
         <Profile
           onNavigate={setCurrentScreen}
+        />
+      )}
+
+      {currentScreen === 'session-detail' && (
+        <SessionDetail
+          session={selectedSession}
+          onBack={() => {
+            setSelectedSession(null)
+            setCurrentScreen('history')
+          }}
         />
       )}
     </>
