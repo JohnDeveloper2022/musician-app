@@ -6,7 +6,7 @@ function SummaryCard({ icon, metadata, primary, secondary, onClick }) {
     return (
         <CardElement
             className={`summary-card ${onClick ? 'summary-card--interactive' : ''}`}
-            type={onclick ? 'button' : undefined}
+            type={onClick ? 'button' : undefined}
             onClick={onClick}
         >
 

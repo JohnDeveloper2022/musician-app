@@ -1,0 +1,67 @@
+.session-detail {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.session-detail__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.session-detail__header h1 {
+  margin: 0;
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-page-title);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.session-detail__header p {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+}
+
+.session-detail__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid #D9DDD7;
+  border-radius: var(--radius-card);
+}
+
+.session-detail__section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.session-detail__label {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  color: var(--color-text-secondary);
+}
+
+.session-detail__section p {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+}
+
+.session-detail__spacer {
+  flex: 1;
+  min-height: 24px;
+}
+
+.session-detail > .button {
+    width: 100%;
+    height: 48px;
+    justify-content: center;
+}
