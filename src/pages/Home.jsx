@@ -9,11 +9,13 @@ function Home({ sessions, onStartSession, onNavigate }) {
 
     const latestSession = completedSessions[0]
 
-    const latestReflectionSession = completedSessions.find(
-        (session) => session.reflection
-    )
+    const intentionLabels = {
+        technique: 'Técnica',
+        repertoire: 'Repertorio',
+        explore: 'Explorar'
+    }
 
-    const latestLearning = latestSession?.idea || latestSession?.reflection
+    const latestLearning = latestSession?.reflection || latestSession?.idea
 
     return (
         <main className='home'>
@@ -29,7 +31,7 @@ function Home({ sessions, onStartSession, onNavigate }) {
                         <span className='material-symbols-outlined'>
                             spa
                         </span>
-                        <span>Hoy</span>
+                        <span>Para tu próxima sesión</span>
                     </div>
 
                     <div className='home__divider' />
@@ -41,7 +43,7 @@ function Home({ sessions, onStartSession, onNavigate }) {
                                     {latestLearning}
                                 </p>
                                 <p className='home__card-secondary'>
-                                    Este aprendizaje puede acompañar tu próxima sesión.
+                                    Esto puede acompañar tu próxima sesión.
                                 </p>
                             </>
                         ) : (
@@ -64,27 +66,49 @@ function Home({ sessions, onStartSession, onNavigate }) {
                         <span className='material-symbols-outlined'>
                             edit_note
                         </span>
-                        <span>Última reflexión</span>
+                        <span>Tu práctica reciente</span>
                     </div>
 
                     <div className='home__divider' />
 
                     <div className='home__card-content'>
-                        <p className='home__card-primary'>
-                            {latestReflectionSession
-                                ? latestReflectionSession.reflection
-                                : 'Todavía no tienes una reflexión registrada.'}
-                        </p>
-                        <button
-                        type='button'
-                        className='home__history-link'
-                        onClick={() => onNavigate('history')}
-                        >
-                            <span>Ver historial</span>
-                            <span className='material-symbols-outlined'>
-                                arrow_forward
-                            </span>
-                        </button>
+                        {latestSession ? (
+                            <>
+                                <div>
+                                    <p className='home__card-primary'>
+                                        Última sesión · {intentionLabels[latestSession.intention]}
+                                    </p>
+
+                                    {latestSession.idea && (
+                                        <p className='home__card-secondary'>
+                                            1 idea capturada
+                                        </p>
+                                    )}
+                                </div>
+
+                                <button
+                                    type='button'
+                                    className='home__history-link'
+                                    onClick={() => onNavigate('history')}
+                                >
+                                    <span>Ver historial</span>
+                                    <span className='material-symbols-outlined'>
+                                        arrow_forward
+                                    </span>
+                                </button>
+                            </>
+                        ) : (
+                            <button
+                                type='button'
+                                className='home__history-link'
+                                onClick={() => onNavigate('history')}
+                            >
+                                <span>Ver historial</span>
+                                <span className='material-symbols-outlined'>
+                                    arrow_forward
+                                </span>
+                            </button>
+                        )}
                     </div>
                 </section>
 
