@@ -9,6 +9,7 @@ import History from './pages/History'
 import Goals from './pages/Goals'
 import Profile from './pages/Profile'
 import SessionDetail from './pages/SessionDetail'
+import GoalForm from './pages/GoalForm'
 
 function App() { 
   const [currentScreen, setCurrentScreen] = useState(() => {
@@ -31,6 +32,12 @@ function App() {
 
   const [selectedSession, setSelectedSession] = useState(null)
 
+  const [goals, setGoals] = useState(() => {
+    const storedGoals = localStorage.getItem('musician-app-goals')
+
+    return storedGoals ? JSON.parse(storedGoals) : []
+  })
+
   useEffect(() => {
     localStorage.setItem(
       'musician-app-sessions',
@@ -48,6 +55,13 @@ function App() {
       localStorage.removeItem('musician-app-current-session')
     }
   }, [session])
+
+  useEffect(() => {
+    localStorage.setItem(
+      'musician-app-goals',
+      JSON.stringify(goals)
+    )
+  }, [goals])
 
   return (
     <>
@@ -142,7 +156,9 @@ function App() {
 
       {currentScreen === 'goals' && (
         <Goals
+          goals={goals}
           onNavigate={setCurrentScreen}
+          onNewGoal={() => setCurrentScreen('goal-form')}
         />
       )}
 
@@ -159,6 +175,27 @@ function App() {
             setSelectedSession(null)
             setCurrentScreen('history')
           }}
+        />
+      )}
+
+      {currentScreen === 'goal-form' && (
+        <GoalForm
+          onSaveGoal={(title) => {
+            const newGoal = {
+              id: crypto.randomUUID(),
+              createdAt: new Date().toISOString(),
+              title,
+              status: 'active'
+            }
+
+            setGoals((currentGoals) => [
+              ...currentGoals,
+              newGoal
+            ])
+
+            setCurrentScreen('goals')
+          }}
+          onBack={() => setCurrentScreen('goals')}
         />
       )}
     </>
