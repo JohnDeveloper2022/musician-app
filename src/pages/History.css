@@ -32,6 +32,7 @@
   flex-direction: column;
   gap: 16px;
   margin-top: 24px;
+  flex: 1;
 }
 
 .history__sessions h2 {
@@ -48,11 +49,31 @@
   gap: 16px;
 }
 
+.history__empty-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
 .history__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.history__empty .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.history__empty p {
   margin: 0;
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  color: var(--color-text-secondary);
 }
 
 .history > .bottom-navigation {

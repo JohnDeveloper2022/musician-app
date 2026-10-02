@@ -17,7 +17,9 @@ function History({ sessions, onNavigate, onSelectSession }) {
 
             <section className='history__sessions'>
 
-                <h2>SESIONES RECIENTES</h2>
+                {sortedSessions.length > 0 && (
+                    <h2>SESIONES RECIENTES</h2>
+                )}
 
                 {sortedSessions.length > 0 ? (
                     <div className='history__list'>
@@ -42,9 +44,15 @@ function History({ sessions, onNavigate, onSelectSession }) {
                         ))}
                     </div>
                 ) : (
-                    <p className='history__empty'>
-                        Aún no tienes sesiones registradas.
-                    </p>
+                    <div className='history__empty-area'>
+                        <div className='history__empty'>
+                            <span className='material-symbols-outlined'>
+                                history
+                            </span>
+
+                            <p>Aún no tienes sesiones registradas.</p>
+                        </div>
+                    </div>
                 )}
 
             </section>
