@@ -1,0 +1,118 @@
+.goal-form {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.goal-form__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.goal-form__header h1 {
+  margin: 0;
+  font-size: var(--font-size-page-title);
+  line-height: var(--line-height-page-title);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.goal-form__header p {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+}
+
+.goal-form__card {
+  width: 100%;
+  margin-top: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid #D9DDD7;
+  border-radius: var(--radius-card);
+  background-color: transparent;
+}
+
+.goal-form__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-icon-label);
+}
+
+.goal-form__card-header .material-symbols-outlined {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-secondary);
+}
+
+.goal-form__label {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  color: var(--color-text-secondary);
+}
+
+.goal-form__divider {
+  width: 100%;
+  height: 1px;
+  background-color: #D9DDD7;
+}
+
+.goal-form__input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+}
+
+.goal-form__input::placeholder {
+  color: #9CA3AF;
+  opacity: 1;
+}
+
+.goal-form__spacer {
+  flex: 1;
+  min-height: 24px;
+}
+
+.goal-form__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.goal-form__actions .button {
+  width: 100%;
+  height: 48px;
+  justify-content: center;
+}
+
+.goal-form__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-icon-label);
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.goal-form__back .material-symbols-outlined {
+  font-size: 24px;
+  line-height: 1;
+}

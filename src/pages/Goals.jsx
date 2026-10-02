@@ -3,21 +3,19 @@ import SummaryCard from '../components/SummaryCard'
 import Button from '../components/Button'
 import BottomNavigation from '../components/BottomNavigation'
 
-function Goals({ onNavigate }) {
-    const goals = [
-        {
-            id: 1,
-            metadata: 'Objetivo activo',
-            primary: 'Mejorar la estabilidad del registro agudo.',
-            secondary: 'Creado hace 2 semanas'            
-        },
-        {
-            id: 2,
-            metadata: 'Objetivo activo',
-            primary: 'Memorizar el segundo movimiento del concierto.',
-            secondary: 'Creado hace 5 días'
-        }
-    ]
+function Goals({ goals, onNavigate, onNewGoal }) {
+
+    function formatCreatedAt(createdAt) {
+        const days = Math.floor(
+            (Date.now() - new Date(createdAt).getTime()) /
+            (1000 * 60 * 60 * 24)
+        )
+
+        if (days === 0) return 'Creado hoy'
+        if (days === 1) return 'Creado ayer'
+
+        return `Creado hace ${days} días`
+    }
 
     return (
         <main className='goals'>
@@ -37,23 +35,27 @@ function Goals({ onNavigate }) {
                             <SummaryCard
                                 key={goal.id}
                                 icon='flag'
-                                metadata={goal.metadata}
-                                primary={goal.primary}
-                                secondary={goal.secondary}
+                                metadata='Objetivo activo'
+                                primary={goal.title}
+                                secondary={formatCreatedAt(goal.createdAt)}
                             />
                         ))}
                     </div>
                 </section>
             ) : (
-                <p className='goals__empty'>
-                    Aún no tienes objetivos activos.
-                </p>
+                <div className='goals__empty-area'>
+                    <div className='goals__empty'>
+                        <span className='material-symbols-outlined'>
+                            flag
+                        </span>
+
+                        <p>Aún no tienes objetivos activos.</p>
+                    </div>
+                </div>
             )}
 
-            <div className='goals__spacer' />
-
             <div className='goals__action'>
-                <Button>Nuevo objetivo</Button>
+                <Button onClick={onNewGoal}>Nuevo objetivo</Button>
             </div>
 
             <BottomNavigation
