@@ -2,6 +2,17 @@ import './SessionDetail.css'
 import Button from '../components/Button'
 
 function SessionDetail({ session, onBack}) {
+
+    function formatIntention(intention) {
+        const labels = {
+            technique: 'Técnica',
+            repertoire: 'Repertorio',
+            explore: 'Explorar'
+        }
+
+        return labels[intention] || intention
+    }
+
     return (
         <main className='session-detail'>
 
@@ -25,7 +36,7 @@ function SessionDetail({ session, onBack}) {
                     <span className='session-detail__label'>
                         Intención
                     </span>
-                    <p>{session.intention}</p>
+                    <p>{formatIntention(session.intention)}</p>
                 </div>
 
                 {session.idea && (
